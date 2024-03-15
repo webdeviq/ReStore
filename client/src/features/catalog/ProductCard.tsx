@@ -9,12 +9,13 @@ import {
   CardHeader,
 } from "@mui/material";
 import { IProduct } from "../../app/models/product";
+import { Link } from "react-router-dom";
 
 interface IProductCardProps {
   product: IProduct;
 }
 
-const ProductCard = ({ product }: IProductCardProps) => { 
+const ProductCard = ({ product }: IProductCardProps) => {
   return (
     <Card>
       <CardHeader
@@ -47,7 +48,9 @@ const ProductCard = ({ product }: IProductCardProps) => {
       </CardContent>
       <CardActions>
         <Button size="small">Add to cart</Button>
-        <Button size="small">View</Button>
+        <Button component={Link} to={`/catalog/${product.id}`} size="small">
+          View
+        </Button>
       </CardActions>
     </Card>
   );
